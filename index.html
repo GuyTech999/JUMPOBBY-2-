@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เกม 2 ผู้เล่น - Platform Adventure</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container" id="gameContainer">
+        <div class="ui-panel">
+            <div class="score-board">
+                <div class="player-info">
+                    <div class="name-input-container">
+                        <input type="text" id="player1NameInput" placeholder="ชื่อผู้เล่น 1" maxlength="15" value="ผู้เล่น 1" autocomplete="off" class="player-name-input">
+                        <span class="controls-label">(WASD)</span>
+                    </div>
+                    <div class="health-bar">
+                        <div class="health-fill" id="health1"></div>
+                    </div>
+                    <p>คะแนน: <span id="score1">0</span></p>
+                    <p class="ghost-ability" id="ghostAbility1" style="display: none;">
+                        👻 กด Space เพื่อแกล้ง (Cooldown: <span id="cooldown1">0</span>s)
+                    </p>
+                </div>
+                <div class="player-info">
+                    <div class="name-input-container">
+                        <input type="text" id="player2NameInput" placeholder="ชื่อผู้เล่น 2" maxlength="15" value="ผู้เล่น 2" autocomplete="off" class="player-name-input">
+                        <span class="controls-label">(ลูกศร)</span>
+                    </div>
+                    <div class="health-bar">
+                        <div class="health-fill" id="health2"></div>
+                    </div>
+                    <p>คะแนน: <span id="score2">0</span></p>
+                    <p class="ghost-ability" id="ghostAbility2" style="display: none;">
+                        👻 กด Enter เพื่อแกล้ง (Cooldown: <span id="cooldown2">0</span>s)
+                    </p>
+                </div>
+            </div>
+            <div class="level-info">
+                <h2>ด่าน: <span id="level">1</span></h2>
+                <p>ความยาก: <span id="difficulty">ง่าย</span></p>
+            </div>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+        <div class="game-over" id="gameOver">
+            <h2>เกมจบ!</h2>
+            <p id="winnerText"></p>
+            <button onclick="restartGame()">เล่นใหม่</button>
+        </div>
+        <div class="instructions">
+            <p><strong>ผู้เล่น 1:</strong> W (กระโดด), A (ซ้าย), D (ขวา) | <strong>ถ้าตาย:</strong> Space (แกล้งเพื่อน)</p>
+            <p><strong>ผู้เล่น 2:</strong> ↑ (กระโดด), ← (ซ้าย), → (ขวา) | <strong>ถ้าตาย:</strong> Enter (แกล้งเพื่อน)</p>
+            <p>🎯 ไปให้ถึงธงสีเขียวที่ท้ายด่านเพื่อผ่านด่าน! ระวัง spikes และ saws!</p>
+            <p>👻 ผู้เล่นที่ตายสามารถแกล้งเพื่อนได้ (Cooldown 30 วินาที)</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
